@@ -1,0 +1,46 @@
+ALGORITHM algorithm_name
+
+PROCEDURE dot_product  (v1: Vecteur v2: Vecteur, VAR produitScalaire:FLOAT )
+BEGIN
+produitScalaire:= v1.x*v2.x+v1.y*v2.y
+END
+
+VAR
+    Vecteur :	STRUCT
+        x: FLOAT;
+        Y : FLOAT;
+    END_STRUCT 
+    tab1 : ARRAY_OF Vecteur;
+    tab2 : ARRAY_OF Vecteur;
+    i:INTEGER
+    ps:FLOAT
+BEGIN
+    write("entrer la taille du tableau de vecteur1")
+    read(N1)
+    FOR i FROM N1-1 TO  STEP 1  DO
+        write("donner l'abscise du vecteur v1")
+        read tab1[i].x;
+        write("donner l'ordonnee du vecteur v1")
+        read tab1[i].y;
+    END_FOR
+
+    write("entrer la taille du tableau du vecteur2")
+    write(N2)
+    FOR j FROM N2-1 TO  STEP 1  DO
+        write("donner l'abscise du vecteur v1")
+        read tab2[j].x
+        write("donner l'ordonnee du vecteur v1")
+        read tab2[j].y
+    END_FOR
+    
+    ps=0;
+    FOR i FROM 0 TO N1-1 STEP 1 DO
+        FOR j FROM 0 TO N2-1 STEP 1  DO
+        dot_product(tab1[i], tab2[j], ps)
+        IF (ps=0) THEN
+            write("il existe deux vecteurs orthogonaux")
+        END_IF
+        END_FOR
+    END_FOR
+    
+END

@@ -1,0 +1,5 @@
+PROCEDURE dot_product (v1: vecteur v2: vecteur, VAR ps:FLOAT )
+VAR 
+BEGIN
+ps:= v1.x*v2.x+v1.y*v2.y
+END
